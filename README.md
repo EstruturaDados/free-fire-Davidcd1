@@ -6,70 +6,6 @@ Neste desafio, você irá simular o gerenciamento de um **inventário de sobrevi
 A empresa **MateCheck** encarregou você de desenvolver o sistema de **mochila virtual** que ajudará os sobreviventes a se prepararem para escapar da ilha.  
 O desafio é dividido em três níveis: **Novato**, **Aventureiro** e **Mestre**, cada um com mais complexidade e poder.
 
-
-## 🎮 Nível Novato: Inventário Básico
-
-### 🚩 Objetivo
-
-Criar um programa em C com as seguintes funcionalidades:
-
-- Adicionar itens à mochila (**nome**, **tipo** e **quantidade**)
-- Remover itens pelo nome
-- Listar os itens cadastrados
-
-### ⚙️ Funcionalidades
-
-- Utilização de `struct` para representar cada item
-- Vetor estático com capacidade para até **10 itens**
-- Leitura e escrita via terminal (`scanf`, `printf`)
-- Menu interativo com `switch` e `do-while`
-
-### 🧠 Simplicidade
-
-- Sem ordenações, buscas especializadas ou uso de ponteiros
-- Ideal para praticar manipulação básica de estruturas e arrays
-
-### 📥 Entrada
-
-O usuário escolhe ações no menu e preenche os dados dos itens conforme solicitado.
-
-### 📤 Saída
-
-O programa exibe os dados organizados em formato de tabela, com nome, tipo e quantidade.
-
-
-
-## 🛡️ Nível Aventureiro: Mochila com Busca
-
-### 🆕 Diferenças em relação ao Nível Novato
-
-- Implementação de **busca sequencial** por nome
-- Novidade no menu: opção de **"Buscar item por nome"**
-- Exibição detalhada do item encontrado
-
-### ⚙️ Funcionalidades
-
-- O usuário pode procurar qualquer item já inserido
-- Se encontrado, o programa exibe seus atributos
-- Caso contrário, exibe mensagem de erro amigável
-
-### 💡 Conceitos Adicionados
-
-- **Busca sequencial**
-- **Comparação de strings** (`strcmp`)
-- **Controle com flag** para indicar se item foi encontrado
-
-### 📥 Entrada
-
-O usuário digita o nome do item que deseja buscar.
-
-### 📤 Saída
-
-- Detalhes completos do item (nome, tipo, quantidade)
-- Ou uma mensagem de erro, se não for encontrado
-
----
-
 ## 🧠 Nível Mestre: Ordenação e Busca Binária
 
 ### 🆕 Diferenças em relação ao Nível Aventureiro
@@ -121,3 +57,108 @@ Cada nível representa uma missão rumo à **sobrevivência total**.
 Escolha seu nível, prepare sua mochila... e **boa sorte na ilha!** 🏝️💼🔍
 
 > Equipe de Ensino – MateCheck
+
+Desafio Código da Ilha – Nível Mestre
+
+Este programa implementa um sistema de gerenciamento de itens em uma mochila virtual, utilizando a linguagem C.
+Ele permite adicionar, remover, listar, ordenar e buscar itens armazenados na mochila.
+O objetivo é auxiliar o usuário no controle dos objetos coletados durante a simulação.
+
+🧩 Estrutura Geral do Sistema
+
+A mochila pode armazenar até 10 itens, e cada item possui as seguintes informações:
+
+Nome
+
+Tipo (ex.: arma, cura, munição)
+
+Quantidade
+
+Prioridade (1 = mais importante, 5 = menos importante)
+
+O programa funciona por meio de um menu interativo, onde o usuário escolhe as ações desejadas.
+
+📋 Funcionalidades do Sistema
+1. Adicionar Item
+
+Permite inserir um novo item na mochila.
+O programa solicita:
+
+Nome do item
+
+Tipo do item
+
+Quantidade (valor inteiro positivo)
+
+Prioridade (entre 1 e 5)
+
+Caso a mochila esteja cheia, o usuário é avisado.
+
+2. Remover Item
+
+Remove um item existente pelo nome.
+Se o item for encontrado, ele é removido e os demais itens são reorganizados para manter o vetor contínuo.
+Caso não exista, o programa informa que o item não foi localizado.
+
+3. Listar Itens
+
+Exibe todos os itens registrados em formato de tabela, mostrando nome, tipo e quantidade.
+Se a mochila estiver vazia, uma mensagem adequada é exibida.
+
+4. Busca Sequencial por Nome
+
+Realiza uma verificação item a item até encontrar o nome desejado.
+Esse método funciona mesmo se a mochila não estiver ordenada.
+
+5. Ordenar Itens (Insertion Sort)
+
+O usuário escolhe o critério de ordenação:
+
+Por nome
+
+Por tipo
+
+Por prioridade
+
+O algoritmo utilizado é o Insertion Sort, e ao final é exibida a quantidade de comparações realizadas (útil para fins de análise de desempenho).
+
+Ao ordenar por nome, o programa ativa o indicador interno ordenadaPorNome = true, permitindo o uso da busca binária.
+
+6. Busca Binária por Nome
+
+Disponível somente se os itens estiverem ordenados por nome.
+O programa verifica essa condição automaticamente.
+
+A busca binária localiza o item de maneira mais rápida, reduzindo o número de comparações.
+
+Se o nome não estiver presente na lista, é mostrada uma mensagem informando que o item não foi encontrado.
+
+7. Sair
+
+Encerra a execução do programa.
+
+🛠️ Como o Programa Opera Internamente
+
+Todos os itens são armazenados em um vetor fixo de 10 posições.
+
+O programa utiliza uma variável global numItens para controlar quantos elementos estão ocupados.
+
+A ordenação modifica diretamente o vetor.
+
+A busca binária só é permitida quando o vetor estiver ordenado por nome.
+
+Para evitar erros de entrada, o código realiza limpeza de buffer sempre que necessário.
+
+🧾 Resumo do Fluxo do Usuário
+
+Abrir o programa
+
+Escolher opções no menu
+
+Adicionar, remover ou visualizar itens
+
+Ordenar a mochila quando desejar
+
+Usar busca binária caso queira localizar itens de forma mais rápida
+
+Encerrar o programa quando terminar
