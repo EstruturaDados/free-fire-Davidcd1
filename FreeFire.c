@@ -101,11 +101,11 @@ void exibirMenu(){
     printf("         🏝️ Desafio Código da Ilha - Mestre 🎒     \n");
     printf("==================================================\n");
     printf("1. Adicionar Item\n");
-    printf("2. Remover Item por Nome\n");
+    printf("2. Descartar Item\n");
     printf("3. Listar Itens\n");
-    printf("4. Buscar Item (Busca Sequencial)\n");
-    printf("5. Ordenar Mochila (Insertion Sort) [%s]\n", ordenadaPorNome ? "ORDENADA POR NOME" : "DESORDENADA");
-    printf("6. Buscar Item (Busca Binária)\n");
+    printf("4. Ordenar Mochila (Insertion Sort) [%s]\n", ordenadaPorNome ? "ORDENADA POR NOME" : "DESORDENADA");
+    printf("5. Buscar Sequencial por Item\n");
+    printf("6. Buscar Binária por Item\n");
     printf("0. Sair e Escapar da Ilha\n");
     printf("--------------------------------------------------\n");
     printf("Escolha uma opção: ");
